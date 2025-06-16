@@ -1,12 +1,44 @@
-# React + Vite
+# 🔐 LinkPass
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**LinkPass** is a modern, minimal web app to save and manage your personal links with notes. It features secure Firebase Auth, real-time Firestore storage, and a beautiful responsive UI built with React + Tailwind CSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✅ **Firebase Authentication** – Sign up / Log in with email-password
+- ✅ **Protected Routes** – Only logged-in users can access Dashboard
+- ✅ **Firestore Integration** – Add, delete, and view your saved links
+- ✅ **Form Validation** – Built using Formik + Yup
+- ✅ **Real-time Sync** – Your data updates live without refresh
+- ✅ **Toast Notifications** – Smooth feedback with `react-hot-toast`
+- ✅ **Debounced Search** – Filter saved links efficiently
+- ✅ **Responsive UI** – Clean design for mobile and desktop
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Preview
+
+![LinkPass Screenshot](https://via.placeholder.com/1200x600?text=Preview+Coming+Soon)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, React Router, Tailwind CSS
+- **State:** Context API
+- **Forms:** Formik + Yup
+- **Auth:** Firebase Authentication
+- **Database:** Firebase Firestore
+- **Notifications:** react-hot-toast
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/yourusername/linkpass.git
+cd linkpass
+npm install
+npm run dev
+```
