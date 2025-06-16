@@ -1,19 +1,17 @@
-// src/main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-
-// Main App component which contains all routes
 import App from "./App";
-
-// Global Tailwind CSS import
 import "./index.css";
+import AuthProvider from "./context/AuthProvider"; // ✅ import AuthProvider
 
-// Render the app inside the root div
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App /> {/* App contains all the routes */}
+      <AuthProvider>
+        {/* ✅ provide auth context */}
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
