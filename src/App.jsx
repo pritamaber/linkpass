@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RedirectIfAuth from "./components/RedirectIfAuth";
+import NewLink from "./pages/NewLink";
 
 // Route tree for the app
 export default function App() {
@@ -33,6 +34,15 @@ export default function App() {
             <RedirectIfAuth>
               <Signup />
             </RedirectIfAuth>
+          }
+        />
+        {/* 🔐 Protect the new link route */}
+        <Route
+          path="/new-link"
+          element={
+            <ProtectedRoute>
+              <NewLink />
+            </ProtectedRoute>
           }
         />
 
