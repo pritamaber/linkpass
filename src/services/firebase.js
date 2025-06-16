@@ -1,24 +1,22 @@
-// Import the functions you need from the SDKs you need
+// src/services/firebase.js
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Load Firebase config from .env
 const firebaseConfig = {
-  apiKey: "AIzaSyCOeDvbnogIYpyGI6jTq_jCm1djrvwmQOM",
-  authDomain: "linkpass-d2c05.firebaseapp.com",
-  projectId: "linkpass-d2c05",
-  storageBucket: "linkpass-d2c05.firebasestorage.app",
-  messagingSenderId: "52326641625",
-  appId: "1:52326641625:web:63c1bdb163ef4f54edf3c8",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Export auth details of the user
+// Export auth and db
 export const auth = getAuth(app);
-// Export db
 export const db = getFirestore(app);

@@ -16,29 +16,37 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+    <nav className="bg-white shadow-md px-4 py-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
       {/* Logo */}
-      <Link to="/" className="text-xl font-bold text-gray-800">
+      <Link to="/dashboard" className="text-xl font-bold text-gray-800">
         🔐 LinkPass
       </Link>
 
       {/* Navigation buttons */}
-      <div className="space-x-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0">
         {!user ? (
           <>
-            <Link to="/login" className="text-gray-700 hover:text-black">
+            <Link
+              to="/login"
+              className="text-gray-700 hover:text-black text-sm"
+            >
               Login
             </Link>
-            <Link to="/signup" className="text-gray-700 hover:text-black">
+            <Link
+              to="/signup"
+              className="text-gray-700 hover:text-black text-sm"
+            >
               Signup
             </Link>
           </>
         ) : (
           <>
-            <span className="text-gray-700 text-sm">Hi, {user.email}</span>
+            <span className="text-gray-700 text-sm truncate max-w-[180px] sm:max-w-xs overflow-hidden">
+              Hi, {user.email}
+            </span>
             <button
               onClick={handleLogout}
-              className="bg-black text-white px-4 py-1 rounded hover:bg-gray-800 transition"
+              className="bg-black text-white text-sm px-4 py-1 rounded hover:bg-gray-800 transition"
             >
               Logout
             </button>
