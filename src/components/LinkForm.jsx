@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../services/firebase";
+import { toast } from "react-hot-toast";
 
 /**
  * LinkForm - allows logged-in user to add a new link to Firestore
@@ -21,15 +22,19 @@ export default function LinkForm({ user }) {
       notes: Yup.string(),
     }),
     onSubmit: async (values, { resetForm, setSubmitting }) => {
+      const saving = toast.loading("Saving...");
+
       try {
         await addDoc(collection(db, "links"), {
           ...values,
           userId: user.uid,
           createdAt: serverTimestamp(),
         });
-        resetForm(); // ✅ Clear form after save
+        toast.success("Link saved ✅", { id: saving });
+        resetForm();
       } catch (error) {
-        console.error("❌ Error adding link:", error);
+        toast.error("Failed to save link ❌", { id: saving });
+        console.error("Save error:", error);
       } finally {
         setSubmitting(false);
       }
