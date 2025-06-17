@@ -1,7 +1,9 @@
 // src/App.jsx
 import { Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 // Pages
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
@@ -18,6 +20,16 @@ export default function App() {
     <>
       <Navbar /> {/* ✅ Always show Navbar on top */}
       <Routes>
+        {/* {Home page route or "/"} */}
+        <Route
+          path="/"
+          element={
+            <RedirectIfAuth redirectTo="/dashboard">
+              <Home />
+            </RedirectIfAuth>
+          }
+        />
+
         {/* {Login route + redirect on already auth} */}
         <Route
           path="/login"
@@ -55,6 +67,8 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        {/* Catch-all route */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );

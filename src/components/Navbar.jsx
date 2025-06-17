@@ -1,57 +1,53 @@
-// src/components/Navbar.jsx
-
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-/**
- * Navbar - shows logo, login/signup or logout based on auth state
- */
 export default function Navbar() {
   const { user, logout } = useAuth();
-  const navigate = useNavigate();
-
-  async function handleLogout() {
-    await logout();
-    navigate("/login");
-  }
 
   return (
-    <nav className="bg-white shadow-md px-4 py-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-      {/* Logo */}
-      <Link to="/dashboard" className="text-xl font-bold text-gray-800">
-        🔐 LinkPass
-      </Link>
+    <nav className="w-full bg-white shadow-sm border-b border-gray-200 px-4 py-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="text-sm font-semibold text-blue-700 bg-blue-100 px-3 py-1.5 rounded hover:bg-blue-200 transition"
+        >
+          LinkPass
+        </Link>
 
-      {/* Navigation buttons */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0">
-        {!user ? (
-          <>
-            <Link
-              to="/login"
-              className="text-gray-700 hover:text-black text-sm"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="text-gray-700 hover:text-black text-sm"
-            >
-              Signup
-            </Link>
-          </>
-        ) : (
-          <>
-            <span className="text-gray-700 text-sm truncate max-w-[180px] sm:max-w-xs overflow-hidden">
-              Hi, {user.email}
-            </span>
-            <button
-              onClick={handleLogout}
-              className="bg-black text-white text-sm px-4 py-1 rounded hover:bg-gray-800 transition"
-            >
-              Logout
-            </button>
-          </>
-        )}
+        {/* Right Section */}
+        <div className="flex items-center space-x-4">
+          {user ? (
+            <>
+              {/* Profile Icon */}
+              <div className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-700">
+                {user.email[0].toUpperCase()}
+              </div>
+              {/* Logout Button */}
+              <button
+                onClick={logout}
+                className="text-sm px-3 py-1 rounded bg-red-100 text-red-600 hover:bg-red-200 transition"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="text-sm px-3 py-1 rounded bg-blue-100 text-blue-600 hover:bg-blue-200"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="text-sm px-3 py-1 rounded bg-green-100 text-green-600 hover:bg-green-200"
+              >
+                Signup
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </nav>
   );
