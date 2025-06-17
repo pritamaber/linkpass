@@ -97,7 +97,7 @@ export default function LinkForm({ user }) {
       <button
         type="submit"
         disabled={formik.isSubmitting}
-        className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition"
+        className="w-full text-sm px-3 py-2 rounded bg-green-100 text-green-700 hover:bg-green-200 transition disabled:opacity-50"
       >
         {formik.isSubmitting ? "Saving..." : "Save Link"}
       </button>

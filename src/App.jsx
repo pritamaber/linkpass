@@ -14,6 +14,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import RedirectIfAuth from "./components/RedirectIfAuth";
 import NewLink from "./pages/NewLink";
 import Profile from "./pages/Profile";
+import Footer from "./components/Footer";
 
 // Route tree for the app
 export default function App() {
@@ -80,6 +81,8 @@ export default function App() {
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      {/* {Footer } */}
+      <Footer />
     </>
   );
 }
