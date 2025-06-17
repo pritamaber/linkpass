@@ -4,11 +4,11 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 text-sm text-gray-600 mt-10">
+    <footer className="bg-white border-t border-gray-200 text-sm text-gray-600">
       <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
         {/* Left - Text */}
         <p className="text-center">
-          © {new Date().getFullYear()} Pritam A. – All rights reserved.
+          © {new Date().getFullYear()} Pritam Das. – All rights reserved.
         </p>
 
         {/* Right - Links */}

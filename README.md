@@ -17,10 +17,6 @@
 
 ---
 
-## 📸 Preview
-
-![LinkPass Screenshot](https://via.placeholder.com/1200x600?text=Preview+Coming+Soon)
-
 ---
 
 ## 🛠️ Tech Stack
