@@ -20,9 +20,12 @@ export default function Navbar() {
           {user ? (
             <>
               {/* Profile Icon */}
-              <div className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-700">
-                {user.email[0].toUpperCase()}
-              </div>
+
+              <Link to="/profile">
+                <div className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-700 hover:ring-2 hover:ring-blue-400 transition">
+                  {user.email[0].toUpperCase()}
+                </div>
+              </Link>
               {/* Logout Button */}
               <button
                 onClick={logout}

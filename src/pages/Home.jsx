@@ -12,7 +12,7 @@ export default function Home() {
         <p className="text-gray-600">Your smart bookmarking tool.</p>
         <Link
           to="/login"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          className="w-full text-sm px-3 py-2 rounded bg-blue-100 text-blue-600 hover:bg-blue-200 transition disabled:opacity-50"
         >
           Login to continue
         </Link>
